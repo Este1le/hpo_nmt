@@ -9,7 +9,7 @@ We collected a large amount of trained NMT models (Transformers) covering a wide
 	
 	bpe\_symbols, num\_layers, num\_embed, transformer\_feed\_forward\_num\_hidden, transformer\_attention\_heads, initial\_learning\_rate
 	
-2.  `*.hyps_scaled`: Scaled hyperparametr configurations whithin range [0,1].
+2.  `*.hyps_scaled`: Scaled hyperparametr configurations within range [0,1].
 
 	|language      | hyperparameter | domain        | scaling function |
 	|--------------| ---------------| --------------| -----------------|
