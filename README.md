@@ -42,5 +42,12 @@ We collected a large amount of trained NMT models (Transformers) covering a wide
 2. Evaluate HPO methods on multi-objective optimization.
 	`python ./scripts/eval_multiple.py -s ./scripts/examples/example.ss -f ./scripts/examples/example.fronts -i 3`
 
-
+### Citation
+```
+@InProceedings{zhang-duh-nmthpo20,
+			   author={Zhang, Xuan and Duh, Kevin},
+			   title={Reproducible and Efficient Benchmarks for Hyperparameter Optimization of Neural Machine Translation Systems},
+			   booktitle={Transactions of the Association for Computational Linguistics},
+			   year={2020}
+```
 
