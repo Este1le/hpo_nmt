@@ -49,6 +49,6 @@ We collected a large amount of trained NMT models (Transformers) covering a wide
 	       title={Reproducible and Efficient Benchmarks for Hyperparameter Optimization of Neural Machine Translation Systems},
 	       booktitle={Transactions of the Association for Computational Linguistics},
 	       year={2020}
-	      }
+}
 ```
 
