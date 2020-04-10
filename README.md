@@ -1,4 +1,4 @@
-# Datasets for Hyperparameter Optimization of Neural Machine Translation
+# Reproducible and Efficient Benchmarks for Hyperparameter Optimization of Neural Machine Translation Systems
 
 We collected a large amount of trained NMT models (Transformers) covering a wide range of hyperparameters and record their hyperparameter configurations and performance measurements, in order to speed up HPO experiments. When evaluating a HPO method, a developer can look up the model performance whenever necessary, without having to train a NMT model from scratch. Specifically, we trained NMT models on six different parallel corpora: zh-en, ru-en, ja-en, en-ja, sw-en, so-en. 
 
