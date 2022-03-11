@@ -1,7 +1,5 @@
 # AutoML 2022 Competition: Multi-objective Hyperparameter Optimization of Transformers
 
-This is the starter kit for participating in the AutoML competition.
-
 ## Description
 
 The speed, size, and accuracy of deep neural networks often depend on hyperparameters such as network depth and architecture type.
@@ -24,24 +22,13 @@ The participant will train and develop their code for hyperparameter optimizatio
 
 ## Local Run
 
-To run locally, first clone this repo:
+To run locally, first clone this repo.
+Then go to the starter kit and follow its [README.md](starting_kit/README.md):
 
 ```
 git clone https://github.com/Este1le/hpo_nmt.git
-cd hpo_nmt/automl2022
+cd hpo_nmt/automl2022/starting_kit
 ```
-
-Try running an example HPO method:
-
-```
-python hpo_randomsearch.py
-```
-
-The main interface is the TabularBenchmark class.
-Note that we first run get_configuration_space() to get the set of configurations (i.e. hyperparameter settings, as python lists)
-You can run objective_function() to query the multi-objective performance metrics of any configuration in this space.
-Finally, once budget is spent, run evaluate_result() to see how well your HPO method performs at finding Pareto-optimal configurations.
-
 
 ## Codalab Code Submission
 
