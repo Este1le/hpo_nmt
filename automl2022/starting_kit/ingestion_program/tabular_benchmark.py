@@ -5,14 +5,15 @@ Tabular Benchmark Manager
 import os
 
 class TabularBenchmark():
-    def __init__(self, mt_dataset):
-        x_file = os.path.join('../datasets', "%s.hyps" %mt_dataset)
-        y_file = os.path.join('../datasets', "%s.fronts" %mt_dataset)
-        evals_file = os.path.join('../datasets', "%s.evals" %mt_dataset)
+    def __init__(self, input_dir, output_dir, mt_dataset):
+        x_file = os.path.join(input_dir, "%s.hyps" %mt_dataset)
+        y_file = os.path.join(input_dir, "%s.fronts" %mt_dataset)
+        evals_file = os.path.join(input_dir, "%s.evals" %mt_dataset)
 
         self.mt_dataset = mt_dataset
         self._budget_used = 0
         self.config = []
+
         with open(x_file, 'r') as X, open (y_file, 'r') as Y:
             for line in X:
                 self.config.append(line.rstrip().split('\t'))
@@ -29,7 +30,7 @@ class TabularBenchmark():
                                         'id':id}
         
         # TODO: improve how we collect samples for results evaluation
-        self.sample_sequence_fid = open('tmp.ss', 'w')
+        self.sample_sequence_fid = open(os.path.join(output_dir,'%s.predict'%mt_dataset), 'w')
 
 
     @property
@@ -51,16 +52,9 @@ class TabularBenchmark():
             return {'bleu_score':None, 'decode_time':None, 'id':None}
 
 
-    # TODO: this should be re-written to directly call on eval_multiple.py as module
-    def evaluate_result(self):
+    def done(self):
         self.sample_sequence_fid.write('\n')
         self.sample_sequence_fid.close()
-        os.system("python ../scripts/eval_multiple.py -i 3 -s tmp.ss -f ../datasets/%s.fronts" % self.mt_dataset)
+        #todo: print some statistics about the sample sequence
 
 
-if __name__ == '__main__':
-
-    # example
-    bench = TabularBenchmark('en-ja')
-    cs = bench.get_configuration_space()
-    print(bench.objective_function(cs[0]))
