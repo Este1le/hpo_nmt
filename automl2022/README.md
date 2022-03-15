@@ -32,8 +32,14 @@ cd hpo_nmt/automl2022/starting_kit
 
 ## Codalab Code Submission
 
-TODO
+Instructions TBA
 
+## Timeline
+
+- April 1: Codalab leaderboard and public data release. Development phase begins. 
+- June 15: Evaluation phase starts.
+- June 25: Evaluation results announced. 
+- July 25-27, 2022: <a href="https://automl.cc">AutoML Conference</a>. Winning participants will present their work. 
 
 
 
