@@ -25,7 +25,9 @@ if __name__=="__main__":
 
     sys.path.append(program_dir)
     sys.path.append(submission_dir)
-    import hpo_model
+    import hpo_model as hpo_model
+    #import hpo_model_bomo as hpo_model
+    #import hpo_model_cmaes as hpo_model
 
     for dataset in ['en-ja']:
         bench = TabularBenchmark(input_dir, output_dir, dataset)
