@@ -26,10 +26,19 @@ if __name__=="__main__":
     sys.path.append(program_dir)
     sys.path.append(submission_dir)
     import hpo_model as hpo_model
-    #import hpo_model_bomo as hpo_model
-    #import hpo_model_cmaes as hpo_model
 
-    for dataset in ['en-ja']:
-        bench = TabularBenchmark(input_dir, output_dir, dataset)
-        hpo_model.run(bench, 50)
+    # For Codalab leaderboard, we will only compare on the so-en and sw-en datasets. 
+    # Feel free to try other dataset in your local run (e.g. en-ja, ja-en, ru-en, zh-en)
+    total_budget = 200
+    total_runs = 10
+    for dataset in ['so-en', 'sw-en']:
+
+        # We'll have multiple runs of HPO to measure the variance of methods
+        for run_number in range(total_runs):
+
+            # This object contains the table of hyperparameter settings and their objective values
+            bench = TabularBenchmark(input_dir, output_dir, dataset, total_budget, run_number)
+
+            # This function requires the hpo_model.py file, provided by the participant
+            hpo_model.run(bench, total_budget)
 

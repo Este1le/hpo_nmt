@@ -16,7 +16,7 @@ def get_args():
                                                          "1 indicates Pareto-optimal sample."
                                                          "Example: examples/example.fronts")
     parser.add_argument("--num-init", "-i", type=int, help="Number of initial samples.")
-    parser.add_argument("--budget", "-b", default=50, help="Runtime budget for fb.")
+    parser.add_argument("--budget", "-b", type=int, default=50, help="Runtime budget for fb.")
     return parser.parse_args()
 
 def fto(sequence, fronts, num_init):

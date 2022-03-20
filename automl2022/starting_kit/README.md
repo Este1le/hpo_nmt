@@ -11,6 +11,12 @@ To implement your own HPO method, please modify the run() function.
 Specifically, the ingestion program will read run hpo_model.run() using different benchmark datasets.
 Each time, it will generate a sample sequence file as its prediction: this is the order in which your HPO method queried the tabular benchmark. 
 
+The directory contains other examples:
+- `hpo_model_bomo.py` for Bayesian Optimization (illustrates a sequential call to the `objection_function()` API)
+- `hpo_model_cmaes.py` for CMA Evolutionary Strategy (illustrates a population-based method with calls to the `objection_function()` API)
+
+To run these, you should replace the filename, e.g. `cp hpo_model_cmaes.py hpo_model.py`. 
+
 (2) To score your HPO results, run the following:
 ```
 python scoring_program/evaluate.py ../../datasets ./
