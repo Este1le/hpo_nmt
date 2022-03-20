@@ -49,7 +49,7 @@ class TabularBenchmark():
              cs[i] is the i-th hyperparameter vector, represented as a tab-delimited string
              like this: '2000.0 \t 2.0 \t 1024.0 \t 1024.0 \t 16.0 \t 0.0003'
         """
-        return self.config
+        return self.config[:]
 
     def objective_function(self, config_str):
         """Returns the accuracy/speed metric of a given hyperparameter configuration
