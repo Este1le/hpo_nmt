@@ -19,11 +19,10 @@ transform_lst = [lambda x: (x-10000)/40000,
 
 class CMAES:
     def __init__(self, cs, pop=5, num_obj=2):
-        cs = np.array(cs)
-        cs = cs.astype(np.float)
         self.cs = []
-        for c in cs:    
-            self.cs.append([transform_lst[i](c[i]) for i in range(len(c))])
+        for c in cs:
+            cf = [float(f) for f in c.split('\t')]
+            self.cs.append([transform_lst[i](cf[i]) for i in range(len(cf))])
         self.label = np.full(len(self.cs), False)
         init_id = random.randint(0, len(self.cs))
         init_vec = self.cs[init_id]

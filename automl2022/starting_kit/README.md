@@ -15,7 +15,7 @@ The directory contains other examples:
 - `hpo_model_bomo.py` for Bayesian Optimization (illustrates a sequential call to the `objection_function()` API)
 - `hpo_model_cmaes.py` for CMA Evolutionary Strategy (illustrates a population-based method with calls to the `objection_function()` API)
 
-To run these, you should replace the filename, e.g. `cp hpo_model_cmaes.py hpo_model.py`. 
+To run these, you should replace the filename, e.g. `cp hpo_model_cmaes.py hpo_model.py`. These methods need some dependencies: `pip install cma scipy george` for local run, but for codalab submission the code needs to be self-contained.
 
 (2) To score your HPO results, run the following:
 ```
