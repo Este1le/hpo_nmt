@@ -1,5 +1,5 @@
 # Competition YAML file : general challenge defition
-admin_names: kevinduh
+admin_names: kevinduh,xuanzhang216
 allow_public_submissions: true
 allow_teams: false
 anonymous_leaderboard: false
@@ -34,8 +34,8 @@ phases:
     max_submissions: 100
     max_submissions_per_day: 15
     phasenumber: 1
-    public_data: input_data_1.zip
-    reference_data: input_data_1.zip
+    public_data: input_data.zip
+    reference_data: input_data.zip
     scoring_program: scoring_program.zip
     start_date: 2022-03-20 00:00:00+00:00 # YYYY-MM-DD
     starting_kit: starting_kit.zip
@@ -47,13 +47,13 @@ phases:
       be revealed when the organizers make them available.'
     execution_time_limit: 500
     ingestion_program: ingestion_program.zip
-    input_data: input_data_2.zip
+    input_data: input_data.zip
     is_scoring_only: false
     label: Final
     max_submissions: 100
     max_submissions_per_day: 5
     phasenumber: 2
-    reference_data: input_data_2.zip
+    reference_data: input_data.zip
     scoring_program: scoring_program.zip
     start_date: 2022-06-15 00:00:00+00:00 # YYYY-MM-DD
 show_datasets_from_yaml: true
