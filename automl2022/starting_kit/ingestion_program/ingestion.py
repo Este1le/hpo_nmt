@@ -22,7 +22,7 @@ if __name__=="__main__":
     print("Using output_dir: " + output_dir)
     print("Using program_dir: " + program_dir)
     print("Using submission_dir: " + submission_dir)
-
+    
     sys.path.append(program_dir)
     sys.path.append(submission_dir)
     import hpo_model as hpo_model
@@ -41,4 +41,3 @@ if __name__=="__main__":
 
             # This function requires the hpo_model.py file, provided by the participant
             hpo_model.run(bench, total_budget)
-

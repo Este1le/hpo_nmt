@@ -6,7 +6,7 @@ The speed, size, and accuracy of deep neural networks often depend on hyperparam
 Many hyperparameter optimization methods have been proposed to date, including Bayesian Optimization, Evolutionary Strategy, Hyperband, and Random Forests.
 Consider the speed-accuracy evaluation of machine translation systems in the scatterplot figure below.
 
-![BLEU-Speed Scatterplot](bt_scatter.png)
+<p><img src="https://raw.githubusercontent.com/Este1le/hpo_nmt/master/automl2022/bt_scatter.png" alt="scatterplot" width="500" height="auto" /></p>
 
 Here, we plot 700 Transformer models (Vaswani, et. al., 2017), each trained on different hyperparameter settings, according to its decoding time on a GPU and its accuracy in terms of BLEU score on a standard machine translation (MT) benchmark. (BLEU score--higher the better--is a standard evaluation metric for machine translation. It compares the word subsequence overlap between system output and human reference.) 
 Note that there is a large variance for both accuracy and speed: some models are very accurate, but slow. Others are fast but inaccurate. Ideally we desire models on the Pareto frontier, which are at the lower-right of the plot and deemed optimal in terms of accuracy-speed tradeoffs.
@@ -36,7 +36,7 @@ Instructions TBA
 
 ## Timeline
 
-- April 1: Codalab leaderboard and public data release. Development phase begins. 
+- April 5: Development phase starts. Codalab leaderboard and public data release.
 - June 15: Evaluation phase starts.
 - June 25: Evaluation results announced. 
 - July 25-27, 2022: <a href="https://automl.cc">AutoML Conference</a>. Winning participants will present their work. 

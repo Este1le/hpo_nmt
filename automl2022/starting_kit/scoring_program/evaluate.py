@@ -6,15 +6,24 @@ import os
 import sys
 import statistics
 
-input_dir = sys.argv[1]
-output_dir = sys.argv[2]
+if len(sys.argv) == 4:
+    prediction_dir = sys.argv[1]
+    output_dir = sys.argv[2]
+    reference_dir = sys.argv[3]
+elif len(sys.argv) == 3:
+    prediction_dir = os.path.join(sys.argv[1],'res/')
+    output_dir = sys.argv[2]
+    reference_dir = os.path.join(sys.argv[1],'ref/')
+else:
+    print("Expects either:\n (a) evaluate.py predict_dir output_dir reference_dir\n (b) evaluate.py input_dir output_dir")
+    sys.exit(1)
 
 total_budget = 200
 score_file = os.path.join(output_dir, "scores.txt")
 for dataset in ['so-en','sw-en']:
 
-    predict_file = os.path.join(output_dir, "%s.predict"%dataset)
-    reference_file = os.path.join(input_dir, "%s.fronts"%dataset)
+    predict_file = os.path.join(prediction_dir, "%s.predict"%dataset)
+    reference_file = os.path.join(reference_dir, "%s.fronts"%dataset)
 
     prediction = []
     with open(predict_file) as f:
