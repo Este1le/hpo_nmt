@@ -3,8 +3,8 @@ admin_names: kevinduh,xuanzhang216
 allow_public_submissions: true
 allow_teams: false
 anonymous_leaderboard: false
-description: 'AutoML-2022 Competition - Multiobjective Hyperparameter Optimization for Transformers'
-start_date: 2022-03-20 00:00:00+00:00
+description: 'AutoML2022 Competition: Multiobjective Hyperparameter Optimization for Transformers'
+start_date: 2022-04-01 00:00:00+00:00
 competition_docker_image: 'codalab/codalab-legacy:py37'
 disallow_leaderboard_modifying: true
 enable_detailed_results: true
@@ -26,7 +26,7 @@ phases:
   1:
     color: green
     description: 'Development phase: create and submit Hyperparameter Optimization (HPO) code; feed-back is provided.'
-    execution_time_limit: 500
+    execution_time_limit: 1500
     ingestion_program: ingestion_program.zip
     input_data: input_data.zip
     is_scoring_only: false
@@ -37,7 +37,7 @@ phases:
     public_data: input_data.zip
     reference_data: input_data.zip
     scoring_program: scoring_program.zip
-    start_date: 2022-03-20 00:00:00+00:00 # YYYY-MM-DD
+    start_date: 2022-04-01 00:00:00+00:00 # YYYY-MM-DD
     starting_kit: starting_kit.zip
   # Final
   2:
@@ -45,7 +45,7 @@ phases:
     description: 'Final phase: submissions from the previous phase are automatically
       cloned and used to compute the final score. The results on the test set will
       be revealed when the organizers make them available.'
-    execution_time_limit: 500
+    execution_time_limit: 1500
     ingestion_program: ingestion_program.zip
     input_data: input_data.zip
     is_scoring_only: false
@@ -57,22 +57,42 @@ phases:
     scoring_program: scoring_program.zip
     start_date: 2022-06-15 00:00:00+00:00 # YYYY-MM-DD
 show_datasets_from_yaml: true
-title: AutoML2022-Multiobjective-HPO-Transformer
+title: 'AutoML2022: Multiobjective Hyperparameter Optimization for Transformers'
 
 # Leaderboard
 leaderboard:
-  columns:
-    Duration:
-      label: Duration
-      leaderboard: &id001
-        label: Results
-        rank: 1
-      numeric_format: 2
-      rank: 7
-    set1_score:
-      label: Prediction score
-      leaderboard: *id001
-      numeric_format: 4
-      rank: 2
-  leaderboards:
-    Results: *id001
+    leaderboards:
+        Results: &RESULTS
+            label: RESULTS
+            rank: 1
+    columns:
+        set1_avg_pareto_with_fixed_budget:
+            leaderboard: *RESULTS
+            label: Set1 NumPareto (avg)
+            numeric_format: 2 
+            rank: 1
+        set1_standard_deviation:
+            leaderboard: *RESULTS
+            label: Set1 NumPareto (stddev)
+            numeric_format: 2
+            rank: 2
+        set2_avg_pareto_with_fixed_budget:
+            leaderboard: *RESULTS
+            label: Set2 NumPareto (avg)
+            numeric_format: 2 
+            rank: 3
+        set2_standard_deviation:
+            leaderboard: *RESULTS
+            label: Set2 NumPareto (stddev)
+            numeric_format: 2
+            rank: 4
+        set3_avg_pareto_with_fixed_budget:
+            leaderboard: *RESULTS
+            label: Set3 NumPareto (avg)
+            numeric_format: 2 
+            rank: 5
+        set3_standard_deviation:
+            leaderboard: *RESULTS
+            label: Set3 NumPareto (stddev)
+            numeric_format: 2
+            rank: 6
