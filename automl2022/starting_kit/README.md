@@ -57,7 +57,21 @@ We desire HPO methods that find the maximum number of Pareto points in the tabul
 
 ## To submit on Codalab
 
-The above walkthrough is meant for local run. On codalab, we will be using the same ingestion and evaluation code, so you will just need to submit a zip file of your `$codedir`. Make sure the zip file does not contain a folder at the root, for example if we submit the code in the directory `sample_code_submission`, we might zip like this:
+The above walkthrough is meant for local run. On codalab, we will be using the same ingestion and evaluation code, so you will just need to submit a zip file of your `$codedir`.
+
+<b>IMPORTANT:</a> To ensure a smooth run on codalab, make sure you follow these instructions:
+
+- There should be at least two files in your zip file: `hpo_model.py` and `metadata` (just include the same file in this `sample_code_submission/metadata`.)
+- If you have dependencies, you can include those files in the same zip. If necessary, you can download them on-the-fly similar to the sample in `sample_code_submission/cmaes.py`, including the snippet:
+
+```
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+install('cma')
+```
+
+- Make sure the zip file does not contain a folder at the root, for example if we submit the code in the directory `sample_code_submission`, we might zip like this so that when things are unzipped, all the files are at the present working directory:
 
 ```
 cd sample_code_submission && zip -r my_submission.zip . 
