@@ -1,6 +1,6 @@
 # Competition YAML file : general challenge defition
 admin_names: kevinduh,xuanzhang216
-allow_public_submissions: true
+allow_public_submissions: false
 allow_teams: false
 anonymous_leaderboard: false
 description: 'AutoML2022 Competition: Multiobjective Hyperparameter Optimization for Transformers'
@@ -25,7 +25,7 @@ phases:
   # Development
   1:
     color: green
-    description: 'Development phase: create and submit Hyperparameter Optimization (HPO) code; feed-back is provided.'
+    description: 'Development phase: submit and test your Hyperparameter Optimization (HPO) code on set1 (so-en) and set2 (sw-en). set3 is blind eval for later phase. Make sure to format your submission zip file following instructions: https://github.com/Este1le/hpo_nmt/tree/master/automl2022/starting_kit'
     execution_time_limit: 1500
     ingestion_program: ingestion_program.zip
     input_data: input_data.zip
@@ -42,9 +42,7 @@ phases:
   # Final
   2:
     color: purple
-    description: 'Final phase: submissions from the previous phase are automatically
-      cloned and used to compute the final score. The results on the test set will
-      be revealed when the organizers make them available.'
+    description: 'Final phase: submissions from the previous phase are automatically cloned and used to compute the final score on set3 (blind evaluation set). set1 (so-en) and set2 (sw-en) will also be run for reference.'
     execution_time_limit: 1500
     ingestion_program: ingestion_program.zip
     input_data: input_data.zip

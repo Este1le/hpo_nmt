@@ -9,6 +9,14 @@
     Further, since some HPO methods incorporate some randomness inherently, we will make 10 independent runs and also record the standard deviation of the (fbp) metric.
 </p>
 
+<p>
+    The accuracy-speed objectives we will jointly optimize are: 
+    <ul>
+    <li>BLEU score (accuracy): Bigher is better. Ranges between 0 and 100.</li> 
+    <li>GPU inference time: Lower is better. This is the number of seconds it takes to translate a certain MT set. </li> 
+    </ul>
+</p>
+
 <p>On the Codalab leaderboard, your code will be run on two MT datasets (so-en, sw-en). The so-en dataset has 604 Transformer models (with different hyperparameter configurations), and the sw-en dataset has 767 hyperparameter configurations.
     For details about the datasets, please again refer to the <a href="https://www.cs.jhu.edu/~kevinduh/papers/zhang20benchmark.pdf">TACL paper</a>.
     If you would like to try on more datasets, feel free to download the other datasets from <a href="https://github.com/Este1le/hpo_nmt">github</a> and run locally. But note the four other datasets have fewer models (less than 200), 
@@ -29,7 +37,7 @@
 </p>
 
 <p>For this Codalab competition, you will need to submit your HPO code. 
-    Please download the Starting Kit from Codalab, or directly clone it from the <a href="https://github.com/Este1le/hpo_nmt/tree/master/automl2022">github source</a>.
+    To get started, please clone the Starting Kit from <a href="https://github.com/Este1le/hpo_nmt/tree/master/automl2022">github source</a>.
 </p>
 
 
