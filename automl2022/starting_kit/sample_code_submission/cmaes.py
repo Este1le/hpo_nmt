@@ -3,6 +3,13 @@ An Implementation of Pareto based multiobjective CMA-ES (covariance matrix adapt
 Reference: AUTOMATED STRUCTURE DISCOVERY AND PARAMETER TUNING OF NEURAL NETWORK LANGUAGE MODEL BASED ON EVOLUTION STRATEGY,
            Tomohiro Tanaka, Takafumi Moriya, Takahiro Shinozaki, Shinji Watanabe, Takaaki Hori, Kevin Duh, 2016
 """
+import sys
+import subprocess
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+install('cma')
+install('scipy')
+install('numpy')
 import math
 import cma
 import random
@@ -41,7 +48,7 @@ class CMAES:
             self.label[new_id] = True
             self.cur_pool.append(new_id)
         return self.cur_pool
-    
+
     def fit_predict(self, raw_evals):
         evals = []
         for ri in range(len(self.cur_pool)):
@@ -51,7 +58,7 @@ class CMAES:
         ranking = -np.array(pareto(evals.T, [-1,-1]))
         self.es.tell(self.cs[self.cur_pool], ranking) # cmaes: fmin
         self.cur_pool = []
-    
+
     def _find_neighbor(self, x):
         dis = np.full(len(self.cs), np.inf)
         for u in np.where(~self.label)[0]:
@@ -63,4 +70,3 @@ class CMAES:
         y1 = -eval['bleu_score'] # -BLEU, smaller is better
         y2 = eval['decode_time'] # decoding_time, smaller is better
         return [y1, y2]
-    

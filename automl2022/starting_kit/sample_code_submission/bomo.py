@@ -2,7 +2,13 @@
 An Implementation of Multi-Objective Bayesian Optimization using EHVI (expected hypervolume improvement).
 Reference: Hypervolume-based Expected Improvement: Monotonicity Properties and Exact Computation, Emmerich et al. 2011
 """
-
+import sys
+import subprocess
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+install('george')
+install('scipy')
+install('numpy')
 import numpy as np
 from scipy.stats import norm
 import george
