@@ -76,3 +76,23 @@ install('cma')
 ```
 cd sample_code_submission && zip -r my_submission.zip . 
 ```
+
+## Details about data and evaluation
+
+There are many ways to evaluate, but we will focus on the following metric: the number of Pareto solutions discovered given a fixed budget. This is the fixed-budget-to-pareto (fbp) metric described in the <a href="https://www.cs.jhu.edu/~kevinduh/papers/zhang20benchmark.pdf">TACL paper</a>. Basically, your HPO method will be given a budget of 200 calls to the tabular benchmark API (i.e. it can sample at most 200 (x,f(x)) pairs. In the end, we will measure how many of these 200 samples (out of the all the hyperparameter settings in the tabular benchmark) are actually on the accuracy-speed Pareto frontier. Further, since some HPO methods incorporate some randomness inherently, we will make 10 independent runs and also record the standard deviation of the (fbp) metric.
+
+The accuracy-speed objectives we will jointly optimize are:
+- BLEU score (accuracy): Bigher is better. Ranges between 0 and 100.
+- GPU inference time: Lower is better. This is the number of seconds it takes to translate a certain MT set.
+
+On the Codalab leaderboard, your code will be run on two MT datasets (so-en, sw-en). The so-en dataset has 604 Transformer models (with different hyperparameter configurations), and the sw-en dataset has 767 hyperparameter configurations. This repo contains four other datasets for you to run locally, but note they have fewer models (less than 200), so we recommend reducing the budget to 50 when testing out your method. The blind test data during the evaluation phase will be similar to so-en and sw-en in characteristics: similar number of models in the tabular benchmark, and same budget of 200 calls. Specifically, the blind test set will feature a different language-pair for MT and different GPU used to measure decoding time, but same hyperparameter space and same Transformer training pipeline. We will allow participants to explore HPO Transfer Learning methods, meaning that data from the six public MT datasets here can be exploited for improving HPO on the new test MT dataset.
+
+The Transformer hyperparameters explored in this competition are as follows:
+- bpe_symbols: Number of subword units for the input/output vocabulary. This interacts with both speed and accuracy (BLEU) in unexpected ways, i.e. for speed, fewer units means faster output softmax layer, but extend sequence length; for accuracy, fewer units mean less paramaters to fit but less correspond to "full words"
+- num_layers: Number of encoder/decoder layers in Transformer. More layers usually mean higher accuracy, at the risk of speed decrease.
+- num_embed: Number of word embedding dimension
+- transformer_feed_forward_num_hidden: Number of hidden units in feedward layer of transformer blocks.
+- transformer_attention_heads: Number of heads in the transformer block.
+- initial_learning_rate: The initial learning rate for ADAM gradient-based training; this can affect accuracy significantly, but not speed
+
+You may want to scale the hyperparameter features in a range suitable for your HPO method; see code example of `transform_lst` in CMA-ES at `sample_code_submission/cmaes.py`. 
