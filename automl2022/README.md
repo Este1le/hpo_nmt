@@ -1,5 +1,7 @@
 # AutoML 2022 Competition: Multi-objective Hyperparameter Optimization of Transformers
 
+Codalab competition webpage: <a href="https://codalab.lisn.upsaclay.fr/competitions/3647">https://codalab.lisn.upsaclay.fr/competitions/3647</a>
+
 ## Description
 
 Hyperparameter optimization (HPO) is an important process in building neural networks with the right speed and accuracy characteristics.

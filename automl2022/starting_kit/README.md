@@ -59,6 +59,9 @@ We desire HPO methods that find the maximum number of Pareto points in the tabul
 
 The above walkthrough is meant for local run. On codalab, we will be using the same ingestion and evaluation code, so you will just need to submit a zip file of your `$codedir`.
 
+Codalab competition webpage: <a href="https://codalab.lisn.upsaclay.fr/competitions/3647">https://codalab.lisn.upsaclay.fr/competitions/364\
+7</a>
+
 <b>IMPORTANT:</b> To ensure a smooth run on codalab, make sure you follow these instructions:
 
 - There should be at least two files in your zip file: `hpo_model.py` and `metadata` (just include the same file in this `sample_code_submission/metadata`.)
