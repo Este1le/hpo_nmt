@@ -68,9 +68,11 @@ def fb(sequence, fronts, budget):
     :return: number of Pareto-optimal points found.
     '''
     nf = 0
+    visited_seq = []
     for i in range(budget):
-        if sequence[i] in fronts:
+        if sequence[i] in fronts and sequence[i] not in visited_seq:
             nf += 1
+            visited_seq.append(sequence[i])
     return nf
 
 if __name__ == "__main__":
