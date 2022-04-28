@@ -59,9 +59,11 @@ for dataset in ['so-en','sw-en']:
     fb_runs = []
     for pred in prediction:
         fb =  0
+        visited_pred = []
         for i in range(total_budget):
-            if pred[i] in reference:
+            if pred[i] in reference and pred[i] not in visited_pred:
                 fb += 1
+                visited_pred.append(pred[i])
         fb_runs.append(fb)
     fb_ave, fb_std = statistics.mean(fb_runs), statistics.stdev(fb_runs)
     fb_std = round(fb_std, 2)
