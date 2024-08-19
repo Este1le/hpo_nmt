@@ -1,10 +1,10 @@
 # LCRankNet-v2
 
-This directory contains scripts for a learning curve extrapolation model, `LCRankNet-v2`. It is a variation of `LCRankNet` ([Wistuba and Pedapati, 2020](https://arxiv.org/pdf/2006.03361)).
+This directory contains scripts for a learning curve extrapolation model, `LCRankNet-v2` introduced by [Zhang and Duh, 2024](https://www.cs.jhu.edu/~xzhan138/papers/AMTA2024_LC.pdf). It is a variation of `LCRankNet` ([Wistuba and Pedapati, 2020](https://arxiv.org/pdf/2006.03361)).
 
 <img src="images/lcranknet_v2.png" alt="LCRankNet-v2" title="Architecture LCRankNet-v2." width="550" height="360">
 
-`LCRankNet-v2` takes three inputs: partial learning curves, hyperparameter configurations, and task meta-information (including dataset ID, task type, source and target language, and base model). 
+`LCRankNet-v2` takes three inputs: partial learning curves, hyperparameter configurations, and task meta-information (including dataset ID, task type, source and target language, and base model) and is trained to predict the optimal performance of the model.
 
 **Run training:**
 

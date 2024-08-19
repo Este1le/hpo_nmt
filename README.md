@@ -4,7 +4,7 @@ We pre-train a large set of neural machine translation (NMT) systems (Transforme
 
 
 # I. NMTHPO Dataset
-This dataset includes 2,245 trained-from-scratch NMT systems trained on 6 different corpora. A variety of performance metrics are reported for each hyperparameter configuration. This dataset is well-suited for evaluating black-box HPO methods such as random search or Bayesian optimization. It can also be utilized to assess multi-objective optimization algorithms.
+This dataset ([Zhang and Duh, 2020](https://aclanthology.org/2020.tacl-1.26/) )includes 2,245 trained-from-scratch NMT systems trained on 6 different corpora. A variety of performance metrics are reported for each hyperparameter configuration. This dataset is well-suited for evaluating black-box HPO methods such as random search or Bayesian optimization. It can also be utilized to assess multi-objective optimization algorithms.
 
 `cd datasets`
 
@@ -47,7 +47,7 @@ This dataset includes 2,245 trained-from-scratch NMT systems trained on 6 differ
 
 # II. NMTLC Dataset
 
-This dataset includes 2,469 models trained on 9 different corpora, extending the `NMTHPO` dataset by NMT systems fine-tuned from LLMs. This is the first HPO benchmark dataset to include models fine-tuned from LLMs for NMT tasks. We report the learning curves (perplexities and BLEU scores on the development set at each checkpoint during training) and the optimal performance for each hyperparameter configuration. It can be used for evaluating multi-fidelity / gray-box HPO methods such as successive halving, and single-objective optimization algorithms. 
+This dataset ([Zhang and Duh, 2024](https://www.cs.jhu.edu/~xzhan138/papers/AMTA2024_LC.pdf)) includes 2,469 models trained on 9 different corpora, extending the `NMTHPO` dataset by NMT systems fine-tuned from LLMs. This is the first HPO benchmark dataset to include models fine-tuned from LLMs for NMT tasks. We report the learning curves (perplexities and BLEU scores on the development set at each checkpoint during training) and the optimal performance for each hyperparameter configuration. It can be used for evaluating multi-fidelity / gray-box HPO methods such as successive halving, and single-objective optimization algorithms. 
 
 `NMTLC` contains models trained on 9 corpora:
 
