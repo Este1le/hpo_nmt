@@ -1,0 +1,59 @@
+device: "cuda" #cpu
+data:
+  data_file: "/exp/xzhang/hpo/Learning-Curve-Extrapolation/paper_data/data.pkl"
+  test: fr-en #material-so-en, material-sw-en, robust19-ja-en, robust19-en-ja, ted-ru-en, ted-zh-en, zh-en, de-en, fr-en
+  num_test: 20
+  max_length: 450
+  pad_id: 0
+  metric: "perplexity" #"bleu"
+model_dir: "/exp/xzhang/hpo/Learning-Curve-Extrapolation/lcranknet/"
+model_name: "fr-en_v0"
+training:
+  load_ckpt: False
+  dif_threshold: 0
+  loss: "v0"
+  v0:
+    rec_weight: 1
+    rank_weight: 1000
+  v1:
+    rec_weight: 1
+    rank_weight: 1000
+    improv_weight: 100
+    improv_threshold: 0.5
+    bce_weight: 0.9
+  v2:
+    rec_weight: 1
+    rank_weight: 1
+    rank_threshold: 0.5
+    bce_weight: 0.9
+  v3:
+    rec_weight: 1
+    rank_weight: 1
+    improv_weight: 1
+    rank_threshold: 0.7
+    bce_weight: 0.9
+  batch_size: 64
+  num_workers: 0
+  random_seed: 42
+  learning_rate: 
+    default: 1.0e-4 # for loss v2, v3, keep it <= 1e-5 to avoid nan 
+  weight_decay: 0.001
+  betas:
+    - 0.9
+    - 0.998
+  curve_output_size: 128 #256
+  ff_size: 128
+  dropout: 0.1
+  num_hyperparams: 8
+  embed_dim: 2
+  optimizer: "adam"
+  scheduler: cosineannealing
+  eta_min: 1.0e-7
+  t_max: 10000
+  validation:
+    freq: 1000
+    unit: step
+  total_epoch: 5
+
+
+
